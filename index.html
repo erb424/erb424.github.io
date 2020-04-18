@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="bootstrap/bootstrap.css" media="screen"/>
+    <link rel="stylesheet" href="https://use.typekit.net/abn2dky.css">
+    <script src="diff/diff.js"></script>
+    <script src="https://unpkg.com/wavesurfer.js"></script>
+    <script defer type="text/javascript" src="script.js"></script>
+    <title>Diktat</title>
+    <link rel="shortcut icon" href="/icons/Diktat.ico" type="image/x-icon">
+</head>
+<body onload="loadExercise()">
+    <div class="mediabar" id="top">
+        <div>
+                <h1 id="diktat" onclick="clearAndReload()" style="font-size:100">Diktat</h1>
+        </div>
+        <div class="mediabar" id="strapline"><h4>Tägliche Diktatübungen mit Nachrichten der Deutschen Welle</h4><br></div>
+        <div class="mediabar" id="response"></div>
+        <div class="mediabar" id="loading">
+            <br>
+            <br>
+            <h4>Audio wird geladen</h4>
+            <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+        </div>
+        <div id="waveform"></div>   
+        <div class="btn-group btn-group-lg" id="audioButtons">
+                <button id="back" class="btn btn-primary" onclick="playerBack()" data-tooltip="ctrl + alt + ←">
+                    <img src="icons/skip-backward-fill.svg" alt="media-back" width="32" height="32">
+                </button>
+                <button id="play" class="btn btn-primary" onclick="playerPlay()" data-tooltip="ctrl + alt + ↓">
+                    <img src="icons/play-fill.svg" alt="media-play" width="32" height="32" id="playPause">
+                </button>
+                <button id="forward" class="btn btn-primary" onclick="playerForward()" data-tooltip="ctrl + alt + →">
+                    <img src="icons/skip-forward-fill.svg" alt="media-forward" width="32" height="32">
+                </button>
+        </div>
+    </div>
+    <div class="centered" id="container">
+        <div id="transcript"></div>
+    </div>
+    <div class="centered" id="end">
+        Diese Seite verwendet Texte und Tonaufnahmen des <a href="https://www.dw.com/de">Deutsche Welle</a> Podcasts <i>Langsam gesprochene Nachrichten</i> – hier geht's zur <a href=https://www.dw.com/de/deutsch-lernen/nachrichten/s-8030>offiziellen Podcastseite</a>.
+    </div>
+
+</body>
+</html>
