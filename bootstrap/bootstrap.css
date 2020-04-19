@@ -1,8 +1,10 @@
 #top{
   overflow: hidden;
+  position: relative;
 }
 
 #audio{
+  position: relative;
   position: -webkit-sticky; /* Safari */
   position: sticky;
   top: 0;
