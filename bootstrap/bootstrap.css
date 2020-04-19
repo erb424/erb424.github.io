@@ -1,18 +1,13 @@
 #top{
   overflow: hidden;
-  background-color:#edc7b7;
-  color: #123c69;
-  position: fixed;
+}
+
+#audio{
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
   top: 0;
-  left:0;
-  right:0;
-  margin-left:0;
-  padding-left:0;
-  margin-right:0;
-  padding-right:0;
-  width: 100%;
-  height: 390px;
-  padding-bottom: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
 #diktat{
@@ -26,11 +21,15 @@
   text-align: center;
   align-content: center;
   margin: auto;
+  background-color:#edc7b7;
+  color: #123c69;
+  width: 100%;
 }
 
 #transcript{
-  padding-top: 390px;
+  position: relative;
   padding-bottom: 50px;
+  z-index: -1;
 }
 
 #end{
