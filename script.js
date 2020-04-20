@@ -1,15 +1,4 @@
-var audio = WaveSurfer.create({
-    container: '#waveform',
-    scrollParent:true,
-    waveColor: "black",
-    progressColor: "grey",
-    hideScrollbar: "true",
-    cursorColor: "red",
-    autoCenter: true,
-    barWidth: 2,
-    barHeight: 2,
-    responsive: true
-});
+let audioReady = false;
 
 function loadExercise() {
 
@@ -52,25 +41,19 @@ function loadExercise() {
                 localStorage.setItem("headlines", JSON.stringify(headlines));
                 localStorage.setItem("articles", JSON.stringify(articles));
             }
-
-            renderPage();         
+            renderPage();      
         })
 }
 
 function renderPage(){
 
-    if(audio.backend.supportsWebAudio() == true){
-        document.getElementById("loading").innerHTML = "<h1>TRUE5</h1>"
-        audio.load(localStorage.media);
-        /*audio.on('ready', function(){
-            /*document.getElementById("loading").innerHTML = "";
-        });*/
-    }
-    
-    if(audio.backend.supportsWebAudio()!= true){
-        document.getElementById("loading").innerHTML = "<h1>TRUE5</h1>"
-    }
-
+    audioReady = false;
+    audio.load(localStorage.media);
+    audio.on('ready', function(){
+        document.getElementById("loading").innerHTML = "";
+        document.getElementById("buttons").outerHTML = buttons;
+        audioReady = true;
+    })
 
     let numSegs = Number(localStorage.numSegs);
     let headlines = JSON.parse(localStorage.getItem("headlines"));
@@ -98,6 +81,7 @@ function renderPage(){
             renderNew(i, headlines)
         }
     }
+    setTimeout(fallBack, 7000); 
 }
 
 function revealTranscript(i) {
@@ -168,9 +152,30 @@ function clearAndReload(){
     loadExercise();
 }
 
+function fallBack(){
+    if(audioReady == false){
+        document.getElementById("waveform").innerHTML = `<h5> Native browser audio only </h5>
+                                                        <audio controls>
+                                                        <source src=${localStorage.media}>
+                                                        Your browser does not support the audio element.
+                                                        </audio>`;
+    }
+ }
+
 
 
 // Audio player controls and keybindings
+var buttons =` <div class="btn-group btn-group-lg" id="audioButtons">
+                <button id="back" class="btn btn-primary" onclick="playerBack()" data-tooltip="ctrl + alt + ←">
+                    <img src="icons/skip-backward-fill.svg" alt="media-back" width="32" height="32">
+                </button>
+                <button id="play" class="btn btn-primary" onclick="playerPlay()" data-tooltip="ctrl + alt + ↓">
+                    <img src="icons/play-fill.svg" alt="media-play" width="32" height="32" id="playPause">
+                </button>
+                <button id="forward" class="btn btn-primary" onclick="playerForward()" data-tooltip="ctrl + alt + →">
+                    <img src="icons/skip-forward-fill.svg" alt="media-forward" width="32" height="32">
+                </button>
+                </div>`;
 
 document.onkeyup = checkKey;
 
@@ -214,8 +219,20 @@ function playerForward(){
 }
 
 
+/* wavesurfer setup*/
 
-
+var audio = WaveSurfer.create({
+    container: '#waveform',
+    scrollParent:true,
+    waveColor: "black",
+    progressColor: "grey",
+    hideScrollbar: "true",
+    cursorColor: "red",
+    autoCenter: true,
+    barWidth: 2,
+    barHeight: 2,
+    responsive: true
+});
 
 
 
