@@ -81,7 +81,7 @@ function renderPage(){
             renderNew(i, headlines)
         }
     }
-    setTimeout(fallBack, 7000); 
+    setTimeout(fallBack, 20000); 
 }
 
 function revealTranscript(i) {
@@ -159,6 +159,7 @@ function fallBack(){
                                                         <source src=${localStorage.media}>
                                                         Your browser does not support the audio element.
                                                         </audio>`;
+        document.getElementById("buttons").innerHTML = "";
     }
  }
 
