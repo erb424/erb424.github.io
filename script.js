@@ -60,14 +60,13 @@ function loadExercise() {
 function renderPage(){
 
     if(audio.backend.supportsWebAudio()){
-        document.getElementById("loading").innerHTML = "<h1>TRUE3</h1>"
+        document.getElementById("loading").innerHTML = "<h1>TRUE4</h1>"
         audio.load(localStorage.media);
         audio.on('ready', function(){
             /*document.getElementById("loading").innerHTML = "";*/
         })
-    }
-    else{
-        document.getElementById("loading").innerHTML = "<h1>False3</h1>"
+    } else {
+        document.getElementById("loading").innerHTML = "<h1>False4</h1>"
     }
 
 
