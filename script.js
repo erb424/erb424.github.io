@@ -59,10 +59,21 @@ function loadExercise() {
 
 function renderPage(){
 
-    audio.load(localStorage.media);
-    audio.on('ready', function(){
-        document.getElementById("loading").innerHTML = "";
-    })
+    if(audio.backend.supportsWebAudio()){
+        audio.load(localStorage.media);
+        audio.on('ready', function(){
+            document.getElementById("loading").innerHTML = "";
+        })
+    }
+    else{
+        documet.getElementByID("loading").innerHTML =`
+                                                    <h5> Native browser audio only </h5>
+                                                    <audio controls>
+                                                        <source src=${localStorage.media}>
+                                                    Your browser does not support the audio element.
+                                                    </audio>`;
+    }
+
 
     let numSegs = Number(localStorage.numSegs);
     let headlines = JSON.parse(localStorage.getItem("headlines"));
