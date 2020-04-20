@@ -67,7 +67,7 @@ function renderPage(){
         })
     }
     else{
-        documet.getElementByID("loading").innerHTML =`
+        document.getElementByID("loading").innerHTML =`
                                                     <h5> Native browser audio only </h5>
                                                     <audio controls>
                                                         <source src=${localStorage.media}>
