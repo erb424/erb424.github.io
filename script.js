@@ -60,7 +60,7 @@ function loadExercise() {
 function renderPage(){
 
     if(audio.backend.supportsWebAudio()){
-        document.getElementById("loading").innerHTML = "<h1>TRUE</h1>"
+        document.getElementById("loading").innerHTML = "<h1>TRUE2</h1>"
         audio.load(localStorage.media);
         audio.on('ready', function(){
             /*document.getElementById("loading").innerHTML = "";*/
