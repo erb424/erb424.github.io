@@ -59,14 +59,16 @@ function loadExercise() {
 
 function renderPage(){
 
-    if(audio.backend.supportsWebAudio()){
-        document.getElementById("loading").innerHTML = "<h1>TRUE4</h1>"
+    if(audio.backend.supportsWebAudio() == true){
+        document.getElementById("loading").innerHTML = "<h1>TRUE5</h1>"
         audio.load(localStorage.media);
-        audio.on('ready', function(){
-            /*document.getElementById("loading").innerHTML = "";*/
-        })
-    } else {
-        document.getElementById("loading").innerHTML = "<h1>False4</h1>"
+        /*audio.on('ready', function(){
+            /*document.getElementById("loading").innerHTML = "";
+        });*/
+    }
+    
+    if(audio.backend.supportsWebAudio()!= true){
+        document.getElementById("loading").innerHTML = "<h1>TRUE5</h1>"
     }
 
 
