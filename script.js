@@ -62,7 +62,7 @@ function renderPage(){
     if(audio.backend.supportsWebAudio()){
         audio.load(localStorage.media);
         audio.on('ready', function(){
-            document.getElementById("loading").innerHTML = "";
+            document.getElementById("loading").innerHTML = "TRUE";
         })
     }
     else{
