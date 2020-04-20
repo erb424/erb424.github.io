@@ -62,7 +62,7 @@ function renderPage(){
     if(audio.backend.supportsWebAudio()){
         audio.load(localStorage.media);
         audio.on('ready', function(){
-            document.getElementById("loading").innerHTML = "TRUE";
+            document.getElementById("loading").innerHTML = "<h1>TRUE</h1>";
         })
     }
     else{
