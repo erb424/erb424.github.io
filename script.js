@@ -1,8 +1,3 @@
-TextDecoderStream
-StyleSheettas
-
-AuthenticatorAttestationResponse
-
 var audio = WaveSurfer.create({
     container: '#waveform',
     scrollParent:true,
