@@ -130,7 +130,6 @@ function revealTranscript(i) {
 }
 
 
-
 function renderNew(i, headlines){
     name = "Transkript " + [i + 1];
     segOutput = `
