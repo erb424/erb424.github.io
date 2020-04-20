@@ -60,19 +60,14 @@ function loadExercise() {
 function renderPage(){
 
     if(audio.backend.supportsWebAudio()){
-        document.getElementById("loading").innerHTML = "<h1>TRUE2</h1>"
+        document.getElementById("loading").innerHTML = "<h1>TRUE3</h1>"
         audio.load(localStorage.media);
         audio.on('ready', function(){
             /*document.getElementById("loading").innerHTML = "";*/
         })
     }
     else{
-        document.getElementByID("loading").innerHTML =`
-                                                    <h5> Native browser audio only </h5>
-                                                    <audio controls>
-                                                        <source src=${localStorage.media}>
-                                                    Your browser does not support the audio element.
-                                                    </audio>`;
+        document.getElementById("loading").innerHTML = "<h1>False3</h1>"
     }
 
 
